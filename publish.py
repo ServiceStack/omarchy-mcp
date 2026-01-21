@@ -148,6 +148,7 @@ def main():
         return
 
     if args.build:
+        check_dependencies()
         clean_build()
         build_package()
 
