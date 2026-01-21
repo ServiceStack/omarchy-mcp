@@ -1,0 +1,582 @@
+[
+  {
+    "name": "Tokyo Night",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/tokyo-night-yN9jzd.png"
+  },
+  {
+    "name": "Catppuccin",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/catppuccin-DEGjke.png"
+  },
+  {
+    "name": "Ethereal",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/preview-bAfGjN.png"
+  },
+  {
+    "name": "Everforest",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/everforest-VTw7rC.png"
+  },
+  {
+    "name": "Gruvbox",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/gruvbox-zTUJ1I.png"
+  },
+  {
+    "name": "Hackerman",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/hackerman-6k-tc-9s09Op.png"
+  },
+  {
+    "name": "Osaka Jade",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/osaka-jade-15wLcY.jpg"
+  },
+  {
+    "name": "Kanagawa",
+    "scheme": "Light",
+    "preview_url": "https://learn.omacom.io/u/kanagawa-qNhehU.png"
+  },
+  {
+    "name": "Nord",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/nord-Rd2Y6y.png"
+  },
+  {
+    "name": "Matte Black",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/2025-07-15-193947_hyprshot-b4lj4R.png"
+  },
+  {
+    "name": "Ristretto",
+    "scheme": "Dark",
+    "preview_url": "https://learn.omacom.io/u/ristretto-theme-c99Sux.png"
+  },
+  {
+    "name": "Flexoki Light",
+    "scheme": "Light",
+    "preview_url": "https://learn.omacom.io/u/flexoki-theme-YaATok.png"
+  },
+  {
+    "name": "Rose Pine",
+    "scheme": "Light",
+    "preview_url": "https://learn.omacom.io/u/omarchy-rose-pine-MUH6hH.png"
+  },
+  {
+    "name": "Catppuccin Latte",
+    "scheme": "Light",
+    "preview_url": "https://learn.omacom.io/u/catppuccin-latte-theme-1-jrWCjt.png"
+  },
+  {
+    "name": "Aetheria",
+    "scheme": "Dark",
+    "github_url": "https://github.com/JJDizz1L/aetheria",
+    "preview_url": "https://learn.omacom.io/u/aetheria-jaDcHN.png"
+  },
+  {
+    "name": "Amberbyte",
+    "scheme": "Dark",
+    "github_url": "https://github.com/tahfizhabib/omarchy-amberbyte-theme",
+    "preview_url": "https://learn.omacom.io/u/amberbyte-gevf2N.png"
+  },
+  {
+    "name": "Arc Blueberry",
+    "scheme": "Dark",
+    "github_url": "https://github.com/vale-c/omarchy-arc-blueberry",
+    "preview_url": "https://learn.omacom.io/u/arc-blueberry-e64rOP.png"
+  },
+  {
+    "name": "Archwave",
+    "scheme": "Dark",
+    "github_url": "https://github.com/davidguttman/archwave",
+    "preview_url": "https://learn.omacom.io/u/archwave-ogNCX2.png"
+  },
+  {
+    "name": "Ash",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-ash-theme",
+    "preview_url": "https://learn.omacom.io/u/ash-theme-DnGpEy.png"
+  },
+  {
+    "name": "Artzen",
+    "scheme": "Dark",
+    "github_url": "https://github.com/tahfizhabib/omarchy-artzen-theme",
+    "preview_url": "https://learn.omacom.io/u/artzen-ddIz8i.png"
+  },
+  {
+    "name": "Aura",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-aura-theme",
+    "preview_url": "https://learn.omacom.io/u/aura-theme-LfFuUo.png"
+  },
+  {
+    "name": "All Hallow's Eve",
+    "scheme": "Dark",
+    "github_url": "https://github.com/guilhermetk/omarchy-all-hallows-eve-theme",
+    "preview_url": "https://learn.omacom.io/u/all-hallows-eve-theme-XQuTDB.webp"
+  },
+  {
+    "name": "Ayaka",
+    "scheme": "Dark",
+    "github_url": "https://github.com/abhijeet-swami/omarchy-ayaka-theme",
+    "preview_url": "https://learn.omacom.io/u/ayaka-FcJ4UP.png"
+  },
+  {
+    "name": "Azure Glow",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Hydradevx/omarchy-azure-glow-theme",
+    "preview_url": "https://learn.omacom.io/u/azure-glow-theme-vLp53z.png"
+  },
+  {
+    "name": "Bauhaus",
+    "scheme": "Light",
+    "github_url": "https://github.com/somerocketeer/omarchy-bauhaus-theme",
+    "preview_url": "https://learn.omacom.io/u/bauhaus-ZDRJnD.png"
+  },
+  {
+    "name": "Black Arch",
+    "scheme": "Light",
+    "github_url": "https://github.com/ankur311sudo/black_arch",
+    "preview_url": "https://learn.omacom.io/u/black-arch-gveh1G.png"
+  },
+  {
+    "name": "Black Gold",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-blackgold-theme",
+    "preview_url": "https://learn.omacom.io/u/black-gold-qUepi7.png"
+  },
+  {
+    "name": "Black Turq",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-blackturq-theme",
+    "preview_url": "https://learn.omacom.io/u/black-turq-YQQZhg.png"
+  },
+  {
+    "name": "Bliss",
+    "scheme": "Light",
+    "github_url": "https://github.com/mishonki3/omarchy-bliss-theme",
+    "preview_url": "https://learn.omacom.io/u/bliss-LfrJ31.png"
+  },
+  {
+    "name": "bluedotrb",
+    "scheme": "Dark",
+    "github_url": "https://github.com/dotsilva/omarchy-bluedotrb-theme",
+    "preview_url": "https://learn.omacom.io/u/bluedotrb-D9Cqtr.png"
+  },
+  {
+    "name": "Blue Ridge Dark",
+    "scheme": "Dark",
+    "github_url": "https://github.com/hipsterusername/omarchy-blueridge-dark-theme",
+    "preview_url": "https://learn.omacom.io/u/blueridge-theme-fkB0tl.png"
+  },
+  {
+    "name": "Catppuccin Mocha Dark",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Luquatic/omarchy-catppuccin-dark",
+    "preview_url": "https://learn.omacom.io/u/catppuccin-mocha-dark-mNVF5H.png"
+  },
+  {
+    "name": "Citrus Cynapse",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Grey-007/citrus-cynapse",
+    "preview_url": "https://learn.omacom.io/u/citrus-cynapse-9rtDDg.png"
+  },
+  {
+    "name": "Cobalt2",
+    "scheme": "Dark",
+    "github_url": "https://github.com/hoblin/omarchy-cobalt2-theme",
+    "preview_url": "https://learn.omacom.io/u/cobalt2-RGgNWQ.png"
+  },
+  {
+    "name": "Darcula",
+    "scheme": "Dark",
+    "github_url": "https://github.com/noahljungberg/omarchy-darcula-theme",
+    "preview_url": "https://learn.omacom.io/u/darcula-boUMqL.png"
+  },
+  {
+    "name": "Demon",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-demon-theme",
+    "preview_url": "https://learn.omacom.io/u/demon-b0AEYS.png"
+  },
+  {
+    "name": "Dotrb",
+    "scheme": "Dark",
+    "github_url": "https://github.com/dotsilva/omarchy-dotrb-theme",
+    "preview_url": "https://learn.omacom.io/u/dotrb-Ev8dB3.png"
+  },
+  {
+    "name": "Drac",
+    "scheme": "Dark",
+    "github_url": "https://github.com/ShehabShaef/omarchy-drac-theme",
+    "preview_url": "https://learn.omacom.io/u/drac-jUSHEO.png"
+  },
+  {
+    "name": "Dracula",
+    "scheme": "Dark",
+    "github_url": "https://github.com/catlee/omarchy-dracula-theme",
+    "preview_url": "https://learn.omacom.io/u/dracula-theme-Rq2gWj.png"
+  },
+  {
+    "name": "Eldritch",
+    "scheme": "Dark",
+    "github_url": "https://github.com/eldritch-theme/omarchy",
+    "preview_url": "https://learn.omacom.io/u/eldritch-6rfAov.png"
+  },
+  {
+    "name": "Evergarden",
+    "scheme": "Dark",
+    "github_url": "https://github.com/celsobenedetti/omarchy-evergarden",
+    "preview_url": "https://learn.omacom.io/u/evergarden-euPINv.png"
+  },
+  {
+    "name": "Felix",
+    "scheme": "Dark",
+    "github_url": "https://github.com/TyRichards/omarchy-felix-theme",
+    "preview_url": "https://learn.omacom.io/u/felix-theme-vk8Fgx.png"
+  },
+  {
+    "name": "Fireside",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-fireside-theme",
+    "preview_url": "https://learn.omacom.io/u/fireside-3NyKEj.png"
+  },
+  {
+    "name": "Flexoki Dark",
+    "scheme": "Dark",
+    "github_url": "https://github.com/euandeas/omarchy-flexoki-dark-theme",
+    "preview_url": "https://learn.omacom.io/u/flexoki-dark-theme-meZCr4.png"
+  },
+  {
+    "name": "Forest Green",
+    "scheme": "Dark",
+    "github_url": "https://github.com/abhijeet-swami/omarchy-forest-green-theme",
+    "preview_url": "https://learn.omacom.io/u/forest-green-hYkgXb.png"
+  },
+  {
+    "name": "Frost",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-frost-theme",
+    "preview_url": "https://learn.omacom.io/u/frost-zu4B6C.png"
+  },
+  {
+    "name": "Futurism",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-futurism-theme",
+    "preview_url": "https://learn.omacom.io/u/futurism-theme-2w6HZI.png"
+  },
+  {
+    "name": "Gold Rush",
+    "scheme": "Dark",
+    "github_url": "https://github.com/tahayvr/omarchy-gold-rush-theme",
+    "preview_url": "https://learn.omacom.io/u/goldrush-bzSWXn.png"
+  },
+  {
+    "name": "The Greek",
+    "scheme": "Light",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-thegreek-theme",
+    "preview_url": "https://learn.omacom.io/u/thegreek-rPS5HB.png"
+  },
+  {
+    "name": "Green Garden",
+    "scheme": "Dark",
+    "github_url": "https://github.com/kalk-ak/omarchy-green-garden-theme",
+    "preview_url": "https://learn.omacom.io/u/omarchy-lush-green-fZgXeQ.png"
+  },
+  {
+    "name": "Green Hakkar",
+    "scheme": "Dark",
+    "github_url": "https://github.com/joaquinmeza/omarchy-hakker-green-theme",
+    "preview_url": "https://learn.omacom.io/u/greenhakker-theme-LWigNZ.jpg"
+  },
+  {
+    "name": "Gruvu",
+    "scheme": "Light",
+    "github_url": "https://github.com/ankur311sudo/gruvu",
+    "preview_url": "https://learn.omacom.io/u/gruvu-wYS1LM.png"
+  },
+  {
+    "name": "Infernium",
+    "scheme": "Dark",
+    "github_url": "https://github.com/RiO7MAKK3R/omarchy-infernium-dark-theme",
+    "preview_url": "https://learn.omacom.io/u/infernium-jTFC59.png"
+  },
+  {
+    "name": "Map Quest",
+    "scheme": "Light",
+    "github_url": "https://github.com/ItsABigIgloo/omarchy-mapquest-theme",
+    "preview_url": "https://learn.omacom.io/u/mapquest-WsJvyQ.png"
+  },
+  {
+    "name": "Mars",
+    "scheme": "Dark",
+    "github_url": "https://github.com/steve-lohmeyer/omarchy-mars-theme",
+    "preview_url": "https://learn.omacom.io/u/mars-theme-r03GXm.png"
+  },
+  {
+    "name": "Mechanoonna",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-mechanoonna-theme",
+    "preview_url": "https://learn.omacom.io/u/mechanoonna-DNCESY.png"
+  },
+  {
+    "name": "Miasma",
+    "scheme": "Dark",
+    "github_url": "https://github.com/OldJobobo/omarchy-miasma-theme",
+    "preview_url": "https://learn.omacom.io/u/miasma-FCluYv.png"
+  },
+  {
+    "name": "Midnight",
+    "scheme": "Dark",
+    "github_url": "https://github.com/JaxonWright/omarchy-midnight-theme",
+    "preview_url": "https://learn.omacom.io/u/midnight-theme-I5HKym.png"
+  },
+  {
+    "name": "Milky Matcha",
+    "scheme": "Light",
+    "github_url": "https://github.com/hipsterusername/omarchy-milkmatcha-light-theme",
+    "preview_url": "https://learn.omacom.io/u/milkymatcha-theme-JFT2X2.png"
+  },
+  {
+    "name": "Monochrome",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Swarnim114/omarchy-monochrome-theme",
+    "preview_url": "https://learn.omacom.io/u/monochrome-theme-GwATD6.png"
+  },
+  {
+    "name": "Monokai",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-monokai-theme",
+    "preview_url": "https://learn.omacom.io/u/monokai-UoJwdC.png"
+  },
+  {
+    "name": "Nagai Poolside",
+    "scheme": "Dark",
+    "github_url": "https://github.com/somerocketeer/omarchy-nagai-poolside-theme",
+    "preview_url": "https://learn.omacom.io/u/nagai-poolside-twaJTF.png"
+  },
+  {
+    "name": "Neo Sploosh",
+    "scheme": "Dark",
+    "github_url": "https://github.com/monoooki/omarchy-neo-sploosh-theme",
+    "preview_url": "https://learn.omacom.io/u/neo-sploosh-JWbVVa.png"
+  },
+  {
+    "name": "Neovoid",
+    "scheme": "Dark",
+    "github_url": "https://github.com/RiO7MAKK3R/omarchy-neovoid-theme",
+    "preview_url": "https://learn.omacom.io/u/neovoid-fVklHO.png"
+  },
+  {
+    "name": "NES",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-nes-theme",
+    "preview_url": "https://learn.omacom.io/u/nes-theme-1Z6uqG.png"
+  },
+  {
+    "name": "Omacarchy",
+    "scheme": "Dark",
+    "github_url": "https://github.com/RiO7MAKK3R/omarchy-omacarchy-theme",
+    "preview_url": "https://learn.omacom.io/u/omacarchy-QPQF1d.png"
+  },
+  {
+    "name": "One Dark Pro",
+    "scheme": "Dark",
+    "github_url": "https://github.com/sc0ttman/omarchy-one-dark-pro-theme",
+    "preview_url": "https://learn.omacom.io/u/one-dark-pro-lm5SO2.png"
+  },
+  {
+    "name": "Pandora",
+    "scheme": "Dark",
+    "github_url": "https://github.com/imbypass/omarchy-pandora-theme",
+    "preview_url": "https://learn.omacom.io/u/pandora-WwROvb.png"
+  },
+  {
+    "name": "Pina",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-pina-theme",
+    "preview_url": "https://learn.omacom.io/u/pina-0TNGvx.png"
+  },
+  {
+    "name": "Pink Blood",
+    "scheme": "Dark",
+    "github_url": "https://github.com/ITSZXY/pink-blood-omarchy-theme",
+    "preview_url": "https://learn.omacom.io/u/pink-blood-Fh9voH.png"
+  },
+  {
+    "name": "Pulsar",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-pulsar-theme",
+    "preview_url": "https://learn.omacom.io/u/pulsar-theme-DMUX7U.png"
+  },
+  {
+    "name": "Purple Moon",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Grey-007/purple-moon",
+    "preview_url": "https://learn.omacom.io/u/purple-moon-S9IiCU.png"
+  },
+  {
+    "name": "Purplewave",
+    "scheme": "Dark",
+    "github_url": "https://github.com/dotsilva/omarchy-purplewave-theme",
+    "preview_url": "https://learn.omacom.io/u/purplewave-ZGiAbQ.png"
+  },
+  {
+    "name": "Rainy Night",
+    "scheme": "Dark",
+    "github_url": "https://github.com/atif-1402/omarchy-rainynight-theme",
+    "preview_url": "https://learn.omacom.io/u/rainynight-auQymU.png"
+  },
+  {
+    "name": "RetroPC",
+    "scheme": "Dark",
+    "github_url": "https://github.com/rondilley/omarchy-retropc-theme",
+    "preview_url": "https://learn.omacom.io/u/retropc-theme-a24vKN.png"
+  },
+  {
+    "name": "Rose Pine Dark",
+    "scheme": "Dark",
+    "github_url": "https://github.com/guilhermetk/omarchy-rose-pine-dark",
+    "preview_url": "https://learn.omacom.io/u/rose-pine-dark-pIMUcV.webp"
+  },
+  {
+    "name": "Rose of Dune",
+    "scheme": "Light",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-roseofdune-theme",
+    "preview_url": "https://learn.omacom.io/u/rose-of-dune-bX5Vhf.png"
+  },
+  {
+    "name": "Sakura",
+    "scheme": "Dark",
+    "github_url": "https://github.com/bjarneo/omarchy-sakura-theme",
+    "preview_url": "https://learn.omacom.io/u/sakura-njsB9m.png"
+  },
+  {
+    "name": "Sapphire",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-sapphire-theme",
+    "preview_url": "https://learn.omacom.io/u/sapphire-tocQNg.png"
+  },
+  {
+    "name": "Shades of Jade",
+    "scheme": "Dark",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-shadesofjade-theme",
+    "preview_url": "https://learn.omacom.io/u/shades-of-jade-uSYodf.png"
+  },
+  {
+    "name": "Space Monkey",
+    "scheme": "Dark",
+    "github_url": "https://github.com/TyRichards/omarchy-space-monkey-theme/",
+    "preview_url": "https://learn.omacom.io/u/space-monkey-theme-UGmUHp.jpg"
+  },
+  {
+    "name": "Snow",
+    "scheme": "Light",
+    "github_url": "https://github.com/bjarneo/omarchy-snow-theme",
+    "preview_url": "https://learn.omacom.io/u/snow-theme-MDtvlu.png"
+  },
+  {
+    "name": "Solarized",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Gazler/omarchy-solarized-theme",
+    "preview_url": "https://learn.omacom.io/u/solarized-theme-9OhQ7Y.png"
+  },
+  {
+    "name": "Solarized Light",
+    "scheme": "Light",
+    "github_url": "https://github.com/dfrico/omarchy-solarized-light-theme",
+    "preview_url": "https://learn.omacom.io/u/solarized-light2-OTGWbc.png"
+  },
+  {
+    "name": "Solarized Osaka",
+    "scheme": "Dark",
+    "github_url": "https://github.com/motorsss/omarchy-solarizedosaka-theme",
+    "preview_url": "https://learn.omacom.io/u/solarized-osaka-theme-9pnXgG.png"
+  },
+  {
+    "name": "Sunset",
+    "scheme": "Dark",
+    "github_url": "https://github.com/rondilley/omarchy-sunset-theme",
+    "preview_url": "https://learn.omacom.io/u/sunset-PsLG4m.png"
+  },
+  {
+    "name": "Sunset Drive",
+    "scheme": "Dark",
+    "github_url": "https://github.com/tahayvr/omarchy-sunset-drive-theme",
+    "preview_url": "https://learn.omacom.io/u/sunsetdrive-UV9Gss.png"
+  },
+  {
+    "name": "Super Game Bro",
+    "scheme": "Dark",
+    "github_url": "https://github.com/TyRichards/omarchy-super-game-bro-theme",
+    "preview_url": "https://learn.omacom.io/u/super-game-bro-theme-2DNtSt.png"
+  },
+  {
+    "name": "Synthwave '84",
+    "scheme": "Dark",
+    "github_url": "https://github.com/omacom-io/omarchy-synthwave84-theme/",
+    "preview_url": "https://learn.omacom.io/u/synthwave-theme-7yHWFA.png"
+  },
+  {
+    "name": "Temerald",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Ahmad-Mtr/omarchy-temerald-theme",
+    "preview_url": "https://learn.omacom.io/u/temerald-aTOeZ9.png"
+  },
+  {
+    "name": "Tokyo Night OLED",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Justin-De-Sio/omarchy-tokyoled-theme",
+    "preview_url": "https://learn.omacom.io/u/tokyo-night-oled-nTsHOs.png"
+  },
+  {
+    "name": "Torrentz Hydra",
+    "scheme": "Dark",
+    "github_url": "https://github.com/monoooki/omarchy-torrentz-hydra-theme",
+    "preview_url": "https://learn.omacom.io/u/torrentz-hydra-sPkd8k.png"
+  },
+  {
+    "name": "Tycho",
+    "scheme": "Dark",
+    "github_url": "https://github.com/leonardobetti/omarchy-tycho",
+    "preview_url": "https://learn.omacom.io/u/tycho-vTGePC.png"
+  },
+  {
+    "name": "Waveform Dark",
+    "scheme": "Dark",
+    "github_url": "https://github.com/hipsterusername/omarchy-waveform-dark-theme",
+    "preview_url": "https://learn.omacom.io/u/waveform-theme-ZiWq97.png"
+  },
+  {
+    "name": "White Gold",
+    "scheme": "Light",
+    "github_url": "https://github.com/HANCORE-linux/omarchy-whitegold-theme",
+    "preview_url": "https://learn.omacom.io/u/whitegold-HGrllY.png"
+  },
+  {
+    "name": "Van Gogh",
+    "scheme": "Dark",
+    "github_url": "https://github.com/Nirmal314/omarchy-van-gogh-theme",
+    "preview_url": "https://learn.omacom.io/u/van-gogh-bwoogF.png"
+  },
+  {
+    "name": "Vesper",
+    "scheme": "Dark",
+    "github_url": "https://github.com/thmoee/omarchy-vesper-theme",
+    "preview_url": "https://learn.omacom.io/u/vesper-1tdScF.png"
+  },
+  {
+    "name": "VHS 80",
+    "scheme": "Dark",
+    "github_url": "https://github.com/tahayvr/omarchy-vhs80-theme",
+    "preview_url": "https://learn.omacom.io/u/vhs80-8MnZ4x.png"
+  },
+  {
+    "name": "Void",
+    "scheme": "Dark",
+    "github_url": "https://github.com/vyrx-dev/omarchy-void-theme",
+    "preview_url": "https://learn.omacom.io/u/void-Q9aUIc.png"
+  }
+]
