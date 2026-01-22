@@ -125,19 +125,6 @@ def theme_matches(theme: str, *args) -> bool:
     return False
 
 
-def themes_contains(themes: list[str], *args) -> bool:
-    """Check if themes contains any of the provided names (case-insensitive, partial match)."""
-    sanitized_themes = {sanitize(t) for t in themes}
-    for name in args:
-        if not name:
-            continue
-        sanitized_name = sanitize(name)
-        for sanitized_theme in sanitized_themes:
-            if sanitized_name in sanitized_theme:
-                return True
-    return False
-
-
 def find_matching_theme(existing_themes, name: str) -> Optional[str]:
     """Find a matching theme from existing_themes by name (case-insensitive, partial match)."""
     if name in existing_themes:
