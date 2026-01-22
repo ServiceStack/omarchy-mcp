@@ -12,19 +12,36 @@ from fastmcp import FastMCP
 from fastmcp.utilities.types import Image, ContentBlock
 from mcp.types import ImageContent, TextContent
 
-# Load omarchy themes from JSON file on startup
-_themes_file = Path(__file__).parent / "omarchy_themes.json"
-with open(_themes_file, "r") as f:
-    OMARCHY_THEMES = json.load(f)
-
 OMARCHY_PATH = os.environ.get("OMARCHY_PATH", os.path.expanduser("~/.local/share/omarchy"))
+
+ThemeFilter = StrEnum(
+    "ThemeFilter",
+    ["ALL", "CURRENT", "INSTALLED", "BUILT_IN", "CAN_REMOVE", "CAN_INSTALL"],
+)
+
+ColorScheme = StrEnum("ColorScheme", ["ANY", "LIGHT", "DARK"])
 
 # Initialize FastMCP server
 mcp = FastMCP("omarchy-mcp")
 
-ThemeFilter = StrEnum("ThemeFilter", ["ALL", "CURRENT", "INSTALLED", "BUILT_IN", "CAN_REMOVE", "CAN_INSTALL"])
 
-ColorScheme = StrEnum("ColorScheme", ["ANY", "LIGHT", "DARK"])
+def sanitize(name: str) -> str:
+    return name.replace(" ", "").replace("_", "").replace("-", "").lower()
+
+
+# Load Omarchy themes from JSON file on startup
+_themes_file = Path(__file__).parent / "omarchy_themes.json"
+with open(_themes_file, "r") as f:
+    OMARCHY_THEMES = json.load(f)
+    for theme in OMARCHY_THEMES:
+        name = theme.get("name")
+        github_url = theme.get("github_url")
+        theme_name = theme.get("theme_name")  # computed
+        if github_url and not theme_name:
+            repo_name = github_url.split("/")[-1]
+            theme_name = sanitize(repo_name.replace("omarchy-", "").replace("-theme", ""))
+            theme["theme_name"] = theme_name
+
 
 def _get_env() -> dict[str, str]:
     """Get environment with OMARCHY_PATH, HOME, and Wayland session vars set."""
@@ -46,6 +63,7 @@ def _get_env() -> dict[str, str]:
 
     return env
 
+
 async def run_command(*args: str) -> tuple[str, str]:
     """Run a command and return (stdout, stderr) as UTF-8 strings.
 
@@ -57,7 +75,7 @@ async def run_command(*args: str) -> tuple[str, str]:
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
         env=env,
-        cwd=os.path.expanduser("~")
+        cwd=os.path.expanduser("~"),
     )
     stdout, stderr = await process.communicate()
     stdout_str = stdout.decode("utf-8") if stdout else ""
@@ -71,20 +89,69 @@ async def run_command(*args: str) -> tuple[str, str]:
         raise RuntimeError(f"Command {args[0]} failed: {error_msg}")
     return stdout_str, stderr_str
 
-def sanitize(name: str) -> str:
-    return name.replace(" ", "").replace("_", "").replace("-", "").lower()
-
-def matches_theme(name:str, theme_name:str) -> bool:
-    """Check if name matches theme_name (case-insensitive, partial match)."""
-    return sanitize(name) in sanitize(theme_name)
 
 def get_theme_by_name(name: str) -> Optional[dict]:
     """Get theme dict from OMARCHY_THEMES by name (case-insensitive, partial match)."""
     sanitized_name = sanitize(name)
     ret = next((t for t in OMARCHY_THEMES if sanitized_name in sanitize(t["name"])), None)
-    if not ret:
-        raise ValueError(f"Theme '{name}' not found in available themes.")
+    if ret:
+        return ret
+    ret = next(
+        (t for t in OMARCHY_THEMES if "theme_name" in t and sanitized_name in sanitize(t["theme_name"])),
+        None,
+    )
     return ret
+
+
+def assert_theme_by_name(name: str) -> Optional[dict]:
+    """Assert theme exists"""
+    ret = get_theme_by_name(name)
+    if ret:
+        return ret
+    raise ValueError(f"Theme '{name}' not found in available themes.")
+
+
+def matches_theme(name: str, theme_name: str) -> bool:
+    """Check if name matches theme_name (case-insensitive, partial match)."""
+    return sanitize(name) in sanitize(theme_name)
+
+
+def theme_matches(theme: str, *args) -> bool:
+    """Check if theme matches any of the provided names (case-insensitive, partial match)."""
+    sanitized_theme = sanitize(theme)
+    for name in args:
+        if name and sanitize(name) in sanitized_theme:
+            return True
+    return False
+
+
+def themes_contains(themes: list[str], *args) -> bool:
+    """Check if themes contains any of the provided names (case-insensitive, partial match)."""
+    sanitized_themes = {sanitize(t) for t in themes}
+    for name in args:
+        if not name:
+            continue
+        sanitized_name = sanitize(name)
+        for sanitized_theme in sanitized_themes:
+            if sanitized_name in sanitized_theme:
+                return True
+    return False
+
+
+def find_matching_theme(existing_themes, name: str) -> Optional[str]:
+    """Find a matching theme from existing_themes by name (case-insensitive, partial match)."""
+    if name in existing_themes:
+        return name
+    # Try to match sanitized names if exact name not found
+    omarchy_theme = get_theme_by_name(name)
+    for existing_theme in existing_themes:
+        if omarchy_theme:
+            if theme_matches(existing_theme, name, omarchy_theme.get("name"), omarchy_theme.get("theme_name")):
+                return existing_theme
+        else:
+            if matches_theme(name, existing_theme):
+                return existing_theme
+
 
 async def get_theme_preview_image(theme_info) -> Optional[ImageContent]:
     if theme_info and "preview_url" in theme_info:
@@ -104,20 +171,31 @@ async def get_installed_themes() -> list[str]:
     stdout, _ = await run_command(f"{OMARCHY_PATH}/bin/omarchy-theme-list")
     return stdout.strip().splitlines()
 
+
 def get_installed_extra_themes() -> list[str]:
     """Get a list of installed Omarchy extra themes (not symlinks)."""
     omarchy_themes = Path.home() / ".config/omarchy/themes"
     if not omarchy_themes.exists():
         return []
-    installed_theme_names = [
-        d.name for d in omarchy_themes.iterdir()
-        if d.is_dir() and not d.is_symlink()
-    ]
+    installed_theme_names = [d.name for d in omarchy_themes.iterdir() if d.is_dir() and not d.is_symlink()]
     return installed_theme_names
+
+
+def get_current_background():
+    current_background_link = Path.home() / ".config/omarchy/current/background"
+    if current_background_link.is_symlink():
+        current_bg = current_background_link.resolve()
+        if current_bg.is_file():
+            img_data = current_bg.read_bytes()
+            fmt = current_bg.suffix.lower().lstrip(".")
+            return Image(data=img_data, format=fmt or "png").to_image_content()
+    return None
+
 
 def text_result(text: str) -> TextContent:
     """Helper to create a TextContent result."""
     return TextContent(type="text", text=text)
+
 
 @mcp.tool()
 async def omarchy_theme_list(filter: ThemeFilter = ThemeFilter.INSTALLED, scheme: ColorScheme = ColorScheme.ANY) -> str:
@@ -142,6 +220,8 @@ async def omarchy_theme_list(filter: ThemeFilter = ThemeFilter.INSTALLED, scheme
         for theme in themes:
             if scheme != ColorScheme.ANY:
                 omarchy_theme = get_theme_by_name(theme)
+                if not omarchy_theme:
+                    continue
                 theme_scheme = omarchy_theme.get("scheme", "Any").lower()
                 if theme_scheme != scheme.value.lower():
                     continue
@@ -176,32 +256,27 @@ async def omarchy_theme_list(filter: ThemeFilter = ThemeFilter.INSTALLED, scheme
             if sanitize(theme["name"]) not in sanitized_installed:
                 available_themes.append(theme["name"])
         return display_themes(available_themes)
-        
+
     # ThemeFilter.ALL - All themes
     all_themes = [theme["name"] for theme in OMARCHY_THEMES]
     return display_themes(all_themes)
+
 
 @mcp.tool()
 async def omarchy_theme_set(theme: str) -> ContentBlock:
     """Set the current Omarchy theme."""
     set_theme = None
-    installed_themes = await get_installed_themes()
 
-    for t in installed_themes:
-        if matches_theme(theme, t):
-            set_theme = t
-            break
+    installed_themes = await get_installed_themes()
+    set_theme = find_matching_theme(installed_themes, theme)
 
     if not set_theme:
-        return text_result(f"You need to install theme '{theme}' first before setting it.")
-
-    omarchy_theme = get_theme_by_name(set_theme)
-    name = omarchy_theme["name"]
+        return text_result(f"The theme '{theme}' hasn't been installed yet.")
 
     current_theme, _ = await run_command("omarchy-theme-current")
 
-    if matches_theme(theme, current_theme) or matches_theme(name, current_theme):
-        return text_result(f"Theme '{name}' is already the current theme.")
+    if theme_matches(current_theme, theme):
+        return text_result(f"Theme '{current_theme}' is already the current theme.")
 
     stdout, stderr = await run_command("omarchy-theme-set", set_theme)
 
@@ -210,40 +285,43 @@ async def omarchy_theme_set(theme: str) -> ContentBlock:
     if current_theme == new_theme and stderr:
         return text_result(f"Failed to set theme '{name}': {stderr}")
 
+    omarchy_theme = get_theme_by_name(theme)
+    if not omarchy_theme:
+        return get_current_background()
     return await get_theme_preview_image(omarchy_theme)
+
 
 @mcp.tool()
 async def omarchy_theme_bg_next() -> ImageContent | None:
     """Cycle to the next Omarchy theme background."""
     stdout, _ = await run_command("omarchy-theme-bg-next")
-    current_background_link = Path.home() / ".config/omarchy/current/background"
-    if current_background_link.is_symlink():
-        current_bg = current_background_link.resolve()
-        if current_bg.is_file():
-            img_data = current_bg.read_bytes()
-            fmt = current_bg.suffix.lower().lstrip(".")
-            return Image(data=img_data, format=fmt or "png").to_image_content()
-    return None
+    return get_current_background()
+
 
 @mcp.tool()
-async def omarchy_preview_theme(name:str) -> Optional[ImageContent]:
+async def omarchy_preview_theme(name: str) -> Optional[ImageContent]:
     """Get a preview image for an Omarchy theme by name."""
     omarchy_theme = get_theme_by_name(name)
+    if not omarchy_theme:
+        return text_result(f"Theme '{name}' not found in available themes.")
     return await get_theme_preview_image(omarchy_theme)
 
+
 @mcp.tool()
-async def omarchy_install_theme(name:str) -> Optional[ContentBlock]:
+async def omarchy_install_theme(name: str) -> Optional[ContentBlock]:
     """Install an Omarchy extra theme by name. Installing a theme automatically sets it as the current theme."""
     omarchy_theme = get_theme_by_name(name)
+    if not omarchy_theme:
+        return text_result(f"Theme '{name}' not found in available themes.")
 
     installed_themes = await get_installed_themes()
-    if omarchy_theme["name"] in installed_themes:
-        raise RuntimeError(f"Theme '{name}' is already installed.")
+    if find_matching_theme(installed_themes, name):
+        return text_result(f"Theme '{name}' is already installed.")
 
     github_url = omarchy_theme.get("github_url")
     if not github_url:
         return text_result(f"Theme '{name}' does not have a GitHub URL for installation.")
-    
+
     current_theme, _ = await run_command("omarchy-theme-current")
 
     stdout, stderr = await run_command("omarchy-theme-install", github_url)
@@ -256,31 +334,23 @@ async def omarchy_install_theme(name:str) -> Optional[ContentBlock]:
     # After installation, get the theme preview image
     return await get_theme_preview_image(omarchy_theme)
 
+
 @mcp.tool()
-async def omarchy_remove_theme(name:str) -> ContentBlock:
+async def omarchy_remove_theme(name: str) -> ContentBlock:
     """Uninstall an Omarchy extra theme by name. Built-in themes cannot be removed."""
 
-    installed_theme_names = get_installed_extra_themes()
-    
-    uninstall_theme = name if name in installed_theme_names else None
-
-    # Try to match sanitized names if exact name not found
-    if name not in installed_theme_names:
-        omarchy_theme = get_theme_by_name(name)
-
-        for installed_name in installed_theme_names:
-            if sanitize(omarchy_theme["name"]) == sanitize(installed_name) or sanitize(name) in sanitize(installed_name):
-                uninstall_theme = installed_name
-                break
+    installed_themes = get_installed_extra_themes()
+    uninstall_theme = find_matching_theme(installed_themes, name)
 
     if not uninstall_theme:
-        return text_result(f"Theme '{name}' is not an installed extra theme:\n" + f" {'\n  '.join(installed_theme_names)}")
+        return text_result(f"Theme '{name}' is not an installed extra theme:\n" + f" {'\n  '.join(installed_themes)}")
 
     stdout, stderr = await run_command("omarchy-theme-remove", uninstall_theme)
 
     if stderr:
-        return stderr
-    return stdout.strip() or "OK"
+        return text_result(f"Failed to remove theme '{uninstall_theme}': {stderr}")
+
+    return text_result(stdout.strip() or "OK")
 
 
 def main():
