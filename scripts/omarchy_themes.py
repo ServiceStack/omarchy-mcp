@@ -13,11 +13,24 @@ OUTPUT_FILE = Path(__file__).parent.parent / "src" / "omarchy_mcp" / "omarchy_th
 
 LIGHT_THEMES = [
     # themes
-    "Kanagawa","Flexoki Light", "Rose Pine", "Catppuccin Latte", 
+    "Kanagawa",
+    "Flexoki Light",
+    "Rose Pine",
+    "Catppuccin Latte",
     # extra themes
-    "Bauhaus", "Black Arch", "Bliss", "The Greek", "Gruvu", "Map Quest", "Milky Matcha", "Rose of Dune", "Snow", 
-    "Solarized Light", "White Gold"
+    "Bauhaus",
+    "Black Arch",
+    "Bliss",
+    "The Greek",
+    "Gruvu",
+    "Map Quest",
+    "Milky Matcha",
+    "Rose of Dune",
+    "Snow",
+    "Solarized Light",
+    "White Gold",
 ]
+
 
 def fetch_html(url: str) -> str:
     """Fetch HTML content from URL."""
@@ -31,11 +44,11 @@ def extract_themes_section(html: str) -> str:
     if not start_match:
         raise ValueError("Could not find 'themes' section")
 
-    end_match = re.search(r'</main>', html[start_match.start():])
+    end_match = re.search(r"</main>", html[start_match.start() :])
     if not end_match:
         raise ValueError("Could not find </main> tag")
 
-    return html[start_match.start():start_match.start() + end_match.start()]
+    return html[start_match.start() : start_match.start() + end_match.start()]
 
 
 def parse_themes(html_section: str) -> list[dict]:
@@ -47,8 +60,8 @@ def parse_themes(html_section: str) -> list[dict]:
     # <em>Tokyo Night</em></p>
     pattern = re.compile(
         r'<p>.*?<img\s+src="([^"]+)"[^>]*>.*?'
-        r'<em>([^<]+)</em></p>',
-        re.DOTALL
+        r"<em>([^<]+)</em></p>",
+        re.DOTALL,
     )
 
     for match in pattern.finditer(html_section):
@@ -58,11 +71,13 @@ def parse_themes(html_section: str) -> list[dict]:
         if preview_url.startswith("/"):
             preview_url = BASE_URL + preview_url
         name = name.strip()
-        themes.append({
-            "name": name,
-            "scheme": "Dark" if name not in LIGHT_THEMES else "Light",
-            "preview_url": preview_url
-        })
+        themes.append(
+            {
+                "name": name,
+                "scheme": "Dark" if name not in LIGHT_THEMES else "Light",
+                "preview_url": preview_url,
+            }
+        )
 
     return themes
 
@@ -73,11 +88,11 @@ def extract_extra_themes_section(html: str) -> str:
     if not start_match:
         raise ValueError("Could not find 'extra-themes' section")
 
-    end_match = re.search(r'</main>', html[start_match.start():])
+    end_match = re.search(r"</main>", html[start_match.start() :])
     if not end_match:
         raise ValueError("Could not find </main> tag")
 
-    return html[start_match.start():start_match.start() + end_match.start()]
+    return html[start_match.start() : start_match.start() + end_match.start()]
 
 
 def parse_extra_themes(html_section: str) -> list[dict]:
@@ -90,7 +105,7 @@ def parse_extra_themes(html_section: str) -> list[dict]:
     pattern = re.compile(
         r'<p>.*?<img\s+src="([^"]+)"[^>]*>.*?'
         r'<a\s+href="(https://github\.com/[^"]+)">([^<]+)</a>\s*</p>',
-        re.DOTALL
+        re.DOTALL,
     )
 
     for match in pattern.finditer(html_section):
@@ -100,12 +115,14 @@ def parse_extra_themes(html_section: str) -> list[dict]:
         if preview_url.startswith("/"):
             preview_url = BASE_URL + preview_url
         name = name.strip()
-        themes.append({
-            "name": name,
-            "scheme": "Dark" if name not in LIGHT_THEMES else "Light",
-            "github_url": github_url.strip(),
-            "preview_url": preview_url
-        })
+        themes.append(
+            {
+                "name": name,
+                "scheme": "Dark" if name not in LIGHT_THEMES else "Light",
+                "github_url": github_url.strip(),
+                "preview_url": preview_url,
+            }
+        )
 
     return themes
 
@@ -125,7 +142,9 @@ def generate_themes_json() -> list[dict]:
     with open(OUTPUT_FILE, "w") as f:
         json.dump(combined_themes, f, indent=2)
 
-    print(f"Generated {OUTPUT_FILE} with {len(themes)} themes and {len(extra_themes)} extra themes ({len(combined_themes)} total).")
+    print(
+        f"Generated {OUTPUT_FILE} with {len(themes)} themes and {len(extra_themes)} extra themes ({len(combined_themes)} total)."
+    )
     return combined_themes
 
 

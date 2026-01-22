@@ -113,9 +113,7 @@ def create_release():
 
     # Create GitHub release using gh CLI
     # The release notes will be auto-generated from commits
-    release_cmd = (
-        f'gh release create {tag} --title "Release {version}" --generate-notes'
-    )
+    release_cmd = f'gh release create {tag} --title "Release {version}" --generate-notes'
     run_command(release_cmd)
 
     print(f"GitHub Release {version} created successfully!")
