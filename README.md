@@ -89,6 +89,15 @@ For development, you can run this server using `uv`:
     }
   }
 }
+{
+  "command": "uv",
+  "args": [
+    "run",
+    "--directory",
+    "/home/mythz/src/ServiceStack/omarchy-mcp",
+    "omarchy-mcp"
+  ]
+}
 ```
 
 ## Available Tools

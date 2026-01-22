@@ -23,8 +23,8 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
+    "aiohttp",
     "fastmcp>=0.1.0",
-    "google-genai>=1.0.0",
 ]
 
 [project.urls]
