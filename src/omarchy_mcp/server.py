@@ -6,11 +6,8 @@ import os
 import json
 
 from enum import StrEnum
-from datetime import datetime
 from pathlib import Path
-from typing import Annotated, Optional
-from google import genai
-from google.genai import types
+from typing import Optional
 from fastmcp import FastMCP
 from fastmcp.utilities.types import Image, ContentBlock
 from mcp.types import ImageContent, TextContent
