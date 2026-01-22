@@ -7,13 +7,13 @@ A Model Context Protocol (MCP) server for integrating [Omarchy](https://omarchy.
 Omarchy MCP enables AI assistants to manage themes in Omarchy - a Linux desktop environment that supports extensive theme customization including color schemes, backgrounds, and UI elements.
 
 With this MCP server, AI assistants can:
-- List available themes (built-in and custom/extra themes)
+- List themes with flexible filtering (installed, available, built-in, removable)
+- Query the currently active theme
 - Switch between installed themes
 - Preview theme images before applying them
 - Install new themes from GitHub repositories
-- Uninstall themes
+- Remove installed extra themes
 - Rotate background images
-- Query the currently active theme
 
 ## Installation
 
@@ -95,21 +95,22 @@ For development, you can run this server using `uv`:
 
 ### omarchy_theme_list
 
-Lists installed Omarchy themes.
+Lists Omarchy themes with flexible filtering options.
 
 **Parameters:**
 - `filter` (optional): Filter themes by type
-  - `"ALL"` (default) - All installed themes
+  - `"INSTALLED"` (default) - All installed themes
+  - `"ALL"` - All available themes (installed and not installed)
+  - `"CURRENT"` - Only the currently active theme
   - `"BUILT_IN"` - Only built-in themes
-  - `"EXTRA"` - Only custom/extra themes
+  - `"CAN_REMOVE"` - Only installed extra themes that can be removed
+  - `"CAN_INSTALL"` - Only themes available for installation
+- `scheme` (optional): Filter by color scheme
+  - `"ANY"` (default) - All color schemes
+  - `"LIGHT"` - Light themed only
+  - `"DARK"` - Dark themed only
 
-**Returns:** List of theme names, one per line
-
-### omarchy_theme_current
-
-Gets the currently active theme.
-
-**Returns:** Current theme name
+**Returns:** List of theme names with status indicators (current, built-in, installed)
 
 ### omarchy_theme_set
 
@@ -126,17 +127,6 @@ Rotates to the next background image in the current theme.
 
 **Returns:** The new background image
 
-### omarchy_extra_themes_to_install
-
-Lists available extra themes that can be installed from GitHub.
-
-**Parameters:**
-- `scheme` (optional): Filter by color scheme
-  - `"DARK"` (default) - Dark themed extras
-  - `"LIGHT"` - Light themed extras
-
-**Returns:** List of installable theme names
-
 ### omarchy_preview_theme
 
 Downloads and returns a preview image for a theme without applying it.
@@ -146,18 +136,18 @@ Downloads and returns a preview image for a theme without applying it.
 
 **Returns:** Theme preview image
 
-### omarchy_install_extra_theme
+### omarchy_install_theme
 
-Installs a new extra/community theme from its GitHub repository.
+Installs a new extra/community theme from its GitHub repository. Installing a theme automatically sets it as the current theme.
 
 **Parameters:**
 - `name` (required): Theme name to install
 
 **Returns:** Theme preview image after installation
 
-### omarchy_uninstall_extra_theme
+### omarchy_remove_theme
 
-Uninstalls a previously installed extra/community theme.
+Uninstalls a previously installed extra/community theme. Built-in themes cannot be removed.
 
 **Parameters:**
 - `name` (required): Theme name to uninstall
