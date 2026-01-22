@@ -37,9 +37,9 @@ pip install -e .
 
 Add to your Claude Desktop configuration file:
 
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-**Linux**: `~/.config/Claude/claude_desktop_config.json`
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+- **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
 {
@@ -93,7 +93,7 @@ For development, you can run this server using `uv`:
 
 ## Available Tools
 
-### omarchy_theme_list
+### `omarchy_theme_list`
 
 Lists Omarchy themes with flexible filtering options.
 
@@ -112,7 +112,7 @@ Lists Omarchy themes with flexible filtering options.
 
 **Returns:** List of theme names with status indicators (current, built-in, installed)
 
-### omarchy_theme_set
+### `omarchy_theme_set`
 
 Applies a theme to the Omarchy desktop.
 
@@ -121,13 +121,13 @@ Applies a theme to the Omarchy desktop.
 
 **Returns:** Preview image of the applied theme
 
-### omarchy_theme_bg_next
+### `omarchy_theme_bg_next`
 
 Rotates to the next background image in the current theme.
 
 **Returns:** The new background image
 
-### omarchy_preview_theme
+### `omarchy_preview_theme`
 
 Downloads and returns a preview image for a theme without applying it.
 
@@ -136,7 +136,7 @@ Downloads and returns a preview image for a theme without applying it.
 
 **Returns:** Theme preview image
 
-### omarchy_install_theme
+### `omarchy_install_theme`
 
 Installs a new extra/community theme from its GitHub repository. Installing a theme automatically sets it as the current theme.
 
@@ -145,8 +145,7 @@ Installs a new extra/community theme from its GitHub repository. Installing a th
 
 **Returns:** Theme preview image after installation
 
-### omarchy_remove_theme
-
+### `omarchy_remove_theme`
 Uninstalls a previously installed extra/community theme. Built-in themes cannot be removed.
 
 **Parameters:**
