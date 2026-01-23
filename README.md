@@ -17,22 +17,6 @@ With this MCP server, AI assistants can:
 
 ## Installation
 
-### From PyPI
-
-```bash
-pip install omarchy-mcp
-```
-
-### From Source
-
-```bash
-git clone https://github.com/ServiceStack/omarchy-mcp.git
-cd omarchy-mcp
-pip install -e .
-```
-
-## Configuration
-
 ### Claude Desktop
 
 Add to your Claude Desktop configuration file:
@@ -99,6 +83,12 @@ For development, you can run this server using `uv`:
   ]
 }
 ```
+
+## System Prompt
+
+You can make your AI a more pleasant and personable Omarchy assistant by configuring it with a custom system prompt. The linked system prompt below creates "Archy" - a friendly, conversational assistant that knows Omarchy well and responds naturally to voice commands.
+
+**[system-prompt.txt](https://github.com/ServiceStack/omarchy-mcp/blob/main/src/omarchy_mcp/system-prompt.txt)**
 
 ## Available Tools
 
