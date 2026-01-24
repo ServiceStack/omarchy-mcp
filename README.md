@@ -1,6 +1,6 @@
 # Omarchy MCP
 
-A Model Context Protocol (MCP) server for integrating [Omarchy](https://omarchy.sh) desktop environment theme management with AI assistants like Claude.
+A Model Context Protocol (MCP) server for integrating [Omarchy](https://omarchy.org) desktop environment theme management with AI assistants like Claude.
 
 ## Overview
 
@@ -41,7 +41,7 @@ Add to your Claude Desktop configuration file:
 
 ### Using in llms .py
 
-Or paste server configuration into [llms .py MCP Servers](https://llmspy.org/docs/extensions/fast_mcp):
+Or paste server configuration into [llms .py MCP Servers](https://llmspy.org/docs/mcp/fast_mcp):
 
 Name: `omarchy-mcp`
 
