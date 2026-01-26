@@ -15,6 +15,10 @@ With this MCP server, AI assistants can:
 - Remove installed extra themes
 - Rotate background images
 
+[![](https://llmspy.org/img/mcp/omarchy-mcp/omarchy-screenshot.png)](https://youtu.be/eV17C0cJz00?si=eGDeEL2d6KLddGBj)
+
+[Youtube Video](https://youtu.be/eV17C0cJz00?si=eGDeEL2d6KLddGBj)
+
 ## Installation
 
 ### Claude Desktop
