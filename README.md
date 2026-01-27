@@ -21,28 +21,6 @@ With this MCP server, AI assistants can:
 
 ## Installation
 
-### Claude Desktop
-
-Add to your Claude Desktop configuration file:
-
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "omarchy": {
-      "description": "Manage Omarchy Desktop Themes",
-      "command": "uvx",
-      "args": [
-        "omarchy-mcp"
-      ]
-    }
-  }
-}
-```
-
 ### Using in llms .py
 
 Or paste server configuration into [llms .py MCP Servers](https://llmspy.org/docs/mcp/fast_mcp):
@@ -77,14 +55,27 @@ For development, you can run this server using `uv`:
     }
   }
 }
+```
+
+### Claude Desktop
+
+Add to your Claude Desktop configuration file:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+
+```json
 {
-  "command": "uv",
-  "args": [
-    "run",
-    "--directory",
-    "/home/mythz/src/ServiceStack/omarchy-mcp",
-    "omarchy-mcp"
-  ]
+  "mcpServers": {
+    "omarchy": {
+      "description": "Manage Omarchy Desktop Themes",
+      "command": "uvx",
+      "args": [
+        "omarchy-mcp"
+      ]
+    }
+  }
 }
 ```
 
